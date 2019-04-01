@@ -1,0 +1,24 @@
+.color_erreur_champ
+{
+ color:red;
+}
+
+.taille_erreur_champ
+{
+    font-size :30px;
+}
+
+.border_erreur_champ
+{
+    border:2px solid red;
+}
+
+.border_erreur_champs
+{
+    border:2px solid red;
+}
+
+tr#border-tableau
+{
+    background-color: white;
+}
