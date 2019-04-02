@@ -2,11 +2,11 @@
 
 
 //Paramettre pour la connexion a la base
-$Databases = "mysql:host=192.168.23.192:8080;dbname=ppe3;charset=utf8";
-$User = "FormaSportAdmin";
-$Password = "FormSportPassword";
+$Databases = "mysql:host=localhost;dbname=FormaSport;charset=utf8";
+$User = "pmauser";
+$Password = "pmapassword";
 
-try {
+try { 
 
 //Si reussi se connecte
     $bdd = new PDO($Databases,$User,$Password, [
