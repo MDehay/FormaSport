@@ -887,7 +887,15 @@ function insert_reunion($bdd, $login,$objet, $description, $date_validite, $id_l
         }
     }
 
-
+function hide_organisateur($bdd, $login)
+{
+    $hide_organisateur = $bdd ->prepare("SELECT  CONCAT(UT_NOM,' ',UT_PRENOM) as users FROM utilisateur where UT_MAIL=:organisateur ");
+    $hide_organisateur->bindValue(':organisateur',$login);
+    $hide_organisateur->execute();
+    $hides_organisateur=$hide_organisateur->fetch();
+    $hides_organisateurs=$hides_organisateur['users'];
+    return $hides_organisateurs;
+}
 
 
 ?>
