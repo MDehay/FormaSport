@@ -85,8 +85,12 @@
 
          $id_dis=modification_reunion();
 
+         $login=$_SESSION['Email'];
+
          //on fait appel a une fonction qui afficher tous les utilisateur posible dans une liste deroulantes
          $arrListe_personne=choix_personne($bdd);
+
+         $organisateur=hide_organisateur($bdd, $login);
 
          if(!empty($id_dis))
          {
