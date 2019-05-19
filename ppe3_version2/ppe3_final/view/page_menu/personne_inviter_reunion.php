@@ -2,8 +2,7 @@
 session_start();
 include_once '../menu/header.php';
 include_once('../menu/menu.php');
-include_once ('../../controller/reunion/redirection/redirection_reunion.php')
-
+include_once ('../../controller/reunion/redirection/redirection_reunion.php');
 ?>
     <div class="container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
         <h1> Ajouter les personnes inviter et personnes indispensables</h1>
@@ -22,11 +21,25 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_1"  for="personne_inviter_1">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_1" name='selected_personne_inviter_1'>
-                            <OPTION VALUE='<?php if($verif_personne_reunion==0){echo $personne_reunion;} ?>'> <?php if($verif_personne_reunion==0){echo $personne_reunion;} ?> </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    if(!empty($id_dis))
+                                    {?>
+                                       <OPTION VALUE='<?php if($verif_personne_reunion==0){echo $personne_reunion;} ?>'> <?php if($verif_personne_reunion==0){echo $personne_reunion;} ?> </OPTION>
+                                    <?php
+                                                                                                                                                                                                          }
+                                    else
+                                        {
+                                            echo "<OPTION VALUE=''></OPTION>\n";
+                                        }
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -39,11 +52,25 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_1"  for="personne_indispensable_1">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_1" name='selected_personne_indispensable_1'>
-                            <OPTION VALUE='<?php if($verif_personne_reunion==1){echo $personne_reunion;} ?>'> <?php if($verif_personne_reunion==1){echo $personne_reunion;} ?> </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    if(!empty($id_dis))
+                                    { ?>
+                                       <OPTION VALUE='<?php if($verif_personne_reunion==1){echo $personne_reunion;} ?>'> <?php if($verif_personne_reunion==1){echo $personne_reunion;} ?> </OPTION>
+                                   <?php
+                                    }
+                                    else
+                                        {
+                                            echo "<OPTION VALUE=''></OPTION>\n";
+                                        }
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -59,11 +86,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_2"  for="personne_inviter_2">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_2" name='selected_personne_inviter_2'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -76,11 +109,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_2"  for="personne_indispensable_2">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_2" name='selected_personne_indispensable_2'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -95,11 +134,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_3"  for="personne_inviter_3">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_3" name='selected_personne_inviter_3'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -112,11 +157,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_3"  for="personne_indispensable_3">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_3" name='selected_personne_indispensable_3'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -131,11 +182,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_4"  for="personne_inviter_4">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_4" name='selected_personne_inviter_4'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -148,11 +205,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_4"  for="personne_indispensable_4">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_4" name='selected_personne_indispensable_4'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -167,11 +230,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_5"  for="personne_inviter_5">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_5" name='selected_personne_inviter_5'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -184,11 +253,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_5"  for="personne_indispensable_5">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_5" name='selected_personne_indispensable_5'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -203,11 +278,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_6"  for="personne_inviter_6">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_6" name='selected_personne_inviter_6'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -220,11 +301,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_6"  for="personne_indispensable_6">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_6" name='selected_personne_indispensable_6'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -239,11 +326,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_inviter_7"  for="personne_inviter_7">personne inviter :</label>
                         <br>
                         <select id="select_personne_inviter_7" name='selected_personne_inviter_7'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
                             foreach($arrListe_personne as $pers_inv) {
                                 $personne_inviter_resultat = $pers_inv['users'];
-                                echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
@@ -255,11 +348,17 @@ include_once ('../../controller/reunion/redirection/redirection_reunion.php')
                         <label id ="personne_indispensable_7"  for="personne_indispensable_7">personne indispensable :</label>
                         <br>
                         <select id="select_personne_indispensable_7" name='selected_personne_indispensable_7'>
-                            <OPTION VALUE=''>  </OPTION>'
                             <?php
-                            foreach($arrListe_personne as $pers_indis) {
-                                $personne_indispensable_resultat = $pers_indis['users'];
-                                echo "<OPTION VALUE='$personne_indispensable_resultat'> $personne_indispensable_resultat</OPTION>\n";
+                            foreach($arrListe_personne as $pers_inv) {
+                                $personne_inviter_resultat = $pers_inv['users'];
+                                if($personne_inviter_resultat == $organisateur)
+                                {
+                                    echo "<OPTION VALUE=''></OPTION>\n";
+                                }
+                                else {
+                                    echo "<OPTION VALUE='$personne_inviter_resultat'> $personne_inviter_resultat </OPTION>\n";
+
+                                }
                             }
                             ?>
                         </select>
